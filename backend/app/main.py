@@ -10,6 +10,11 @@ from pathlib import Path
 from typing import List, Optional
 from datetime import datetime
 
+from dotenv import load_dotenv
+# Load environment variables from .env file
+env_path = Path(__file__).parent.parent / '.env'
+load_dotenv(dotenv_path=env_path)
+
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
