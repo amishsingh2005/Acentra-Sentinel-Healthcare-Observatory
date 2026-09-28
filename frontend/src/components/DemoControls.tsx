@@ -6,6 +6,10 @@ export function DemoControls() {
   const [activeSim, setActiveSim] = useState<string | null>(null);
 
   async function handleSimulate(type: string) {
+    if (activeSim === type) {
+      await handleReset();
+      return;
+    }
     setLoading(true);
     await api.demo(type);
     setActiveSim(type);
@@ -19,8 +23,24 @@ export function DemoControls() {
     setLoading(false);
   }
 
-  const getBtnClass = (type: string) => {
-    return activeSim === type ? "btn btn-primary" : "btn btn-secondary";
+  const renderSimButton = (type: string, icon: string, defaultText: string, stopText: string) => {
+    const isActive = activeSim === type;
+    return (
+      <button 
+        className={isActive ? "btn btn-primary" : "btn btn-secondary"} 
+        style={isActive ? { 
+          background: 'linear-gradient(135deg, #E5484D 0%, #c92a2a 100%)', 
+          borderColor: '#ff6b6b', 
+          boxShadow: '0 4px 15px rgba(229, 72, 77, 0.3)',
+          color: '#fff'
+        } : {}}
+        disabled={loading && !isActive} 
+        onClick={() => handleSimulate(type)}
+      >
+        <span style={{ opacity: 0.8, marginRight: 6 }}>{isActive ? '🛑' : icon}</span> 
+        {isActive ? stopText : defaultText}
+      </button>
+    );
   };
 
   return (
@@ -44,18 +64,10 @@ export function DemoControls() {
       </div>
       
       <div style={{ display: 'flex', gap: 'var(--space-3)', flexWrap: 'wrap', alignItems: 'center' }}>
-        <button className={getBtnClass('simulate_claims')} disabled={loading} onClick={() => handleSimulate('simulate_claims')}>
-          <span style={{ opacity: 0.8, marginRight: 6 }}>⚡</span> Simulate Claims Incident
-        </button>
-        <button className={getBtnClass('simulate_um')} disabled={loading} onClick={() => handleSimulate('simulate_um')}>
-          <span style={{ opacity: 0.8, marginRight: 6 }}>⏱️</span> Simulate UM Delay
-        </button>
-        <button className={getBtnClass('simulate_fhir')} disabled={loading} onClick={() => handleSimulate('simulate_fhir')}>
-          <span style={{ opacity: 0.8, marginRight: 6 }}>🔌</span> Simulate FHIR Failure
-        </button>
-        <button className={getBtnClass('simulate_pharmacy')} disabled={loading} onClick={() => handleSimulate('simulate_pharmacy')}>
-          <span style={{ opacity: 0.8, marginRight: 6 }}>💊</span> Simulate Pharmacy Spike
-        </button>
+        {renderSimButton('simulate_claims', '⚡', 'Simulate Claims Incident', 'Stop Claims Incident')}
+        {renderSimButton('simulate_um', '⏱️', 'Simulate UM Delay', 'Stop UM Delay')}
+        {renderSimButton('simulate_fhir', '🔌', 'Simulate FHIR Failure', 'Stop FHIR Failure')}
+        {renderSimButton('simulate_pharmacy', '💊', 'Simulate Pharmacy Spike', 'Stop Pharmacy Spike')}
         
         <div style={{ marginLeft: 'auto' }}>
           <button className="btn btn-secondary" disabled={loading} onClick={handleReset}>
