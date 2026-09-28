@@ -14,7 +14,11 @@ export function Header({ page, onNav, connected }: HeaderProps) {
       <div className="header-brand">
         <div className="brand-name" style={{ display: 'flex', alignItems: 'center', height: 48, gap: 16 }}>
           {/* Acentra Health Pure HTML/SVG Logo */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+          <div 
+            style={{ display: 'flex', alignItems: 'center', gap: 6, cursor: 'pointer' }}
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            title="Scroll to top"
+          >
             <svg width="34" height="34" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ marginTop: -2 }}>
               <path d="M 14 20 L 22 6 L 34 32" stroke="#39D353" strokeWidth="5.5" strokeLinecap="round" strokeLinejoin="round" />
               <path d="M 6 32 Q 20 22 34 32" stroke="#39D353" strokeWidth="5.5" strokeLinecap="round" />
