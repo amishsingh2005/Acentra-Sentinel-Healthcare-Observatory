@@ -248,6 +248,14 @@ async def demo_command(cmd: DemoCommand):
         await ws_manager.broadcast_system("Demo reset — system restored to normal", "operational")
         return {"status": "reset", "message": "Demo reset complete"}
 
+    if cmd.action == "stop":
+        set_demo_mode(False)
+        _demo_active["service"] = None
+        if _demo_timer and not _demo_timer.done():
+            _demo_timer.cancel()
+        await ws_manager.broadcast_system("Incident injection stopped. System recovering.", "operational")
+        return {"status": "stopped", "message": "Error injection halted."}
+
     config = DEMO_CONFIGS.get(cmd.action)
     if not config:
         raise HTTPException(status_code=400, detail=f"Unknown demo action: {cmd.action}")
