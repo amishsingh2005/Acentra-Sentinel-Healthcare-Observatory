@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: sentinel-backend
+    env: docker
+    rootDir: backend
+    plan: free
