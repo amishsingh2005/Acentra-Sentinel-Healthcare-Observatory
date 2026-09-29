@@ -59,6 +59,16 @@ The system is built on a decoupled, stream-based architecture:
 
 ---
 
+## 📬 Dual-Path Alert Routing (SMTP & AWS SNS)
+
+Sentinel features a resilient dual-path notification engine designed to guarantee delivery of critical incident alerts to on-call engineers.
+
+1. **Primary Transport (AWS SNS)**: Critical alerts are instantly published to an Amazon Simple Notification Service (SNS) topic. This allows fan-out routing to SMS, PagerDuty, webhooks, or enterprise email queues.
+2. **Fallback Transport (SMTP)**: If the AWS connection fails or credentials expire, the system automatically fails over to a direct SMTP mailer (e.g., Gmail SMTP), ensuring the alert is delivered via standard email.
+3. **Smart Rate Limiting**: To prevent alert fatigue during a massive outage, the engine suppresses duplicate alert notifications for a given service within a sliding window.
+
+---
+
 ## 🚀 Quick Start
 
 ### 1. Start the Backend
@@ -67,8 +77,19 @@ The system is built on a decoupled, stream-based architecture:
 cd backend
 pip install -r requirements.txt
 
-# (Optional) Copy env file for AWS SNS integration
-cp ../.env.example .env
+# Configure your environment variables for notifications
+# Create a .env file with the following keys:
+#
+# AWS_ACCESS_KEY_ID=your_aws_key
+# AWS_SECRET_ACCESS_KEY=your_aws_secret
+# AWS_REGION=your_aws_region
+# AWS_SNS_TOPIC_ARN=arn:aws:sns:region:account:topic
+# 
+# SMTP_SERVER=smtp.gmail.com
+# SMTP_PORT=587
+# SMTP_USERNAME=your_email@gmail.com
+# SMTP_PASSWORD=your_app_password
+# ALERT_EMAIL_TO=oncall@yourdomain.com
 
 # Run the FastAPI server
 uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
