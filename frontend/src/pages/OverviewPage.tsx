@@ -293,52 +293,52 @@ export function OverviewPage({
       {/* 9. System Pipeline */}
       <div className="section-gap" style={{ marginBottom: 120 }}>
         <div className="section-title">SYSTEM PIPELINE</div>
-        <div className="card" style={{ padding: 'var(--space-5)', overflowX: 'auto' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)', minWidth: 'max-content' }}>
+        <div className="card" style={{ padding: 'var(--space-4)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', width: '100%', justifyContent: 'space-between' }}>
             
             {/* Phase 1: Source & Ingest */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 8, padding: '16px', background: 'rgba(0,0,0,0.2)', borderRadius: '8px', border: '1px solid var(--border-subtle)' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 6, padding: '12px', background: 'rgba(0,0,0,0.2)', borderRadius: '8px', border: '1px solid var(--border-subtle)', flex: 1, minWidth: 0 }}>
               <div style={{ fontSize: 10, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 600 }}>Phase 1: Ingest</div>
-              <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-                <div style={{ padding: '8px 12px', background: 'var(--bg-main)', border: '1px solid var(--border-subtle)', borderRadius: '4px', fontSize: 13 }}>Synthetic Workload</div>
+              <div style={{ display: 'flex', gap: 4, alignItems: 'center', flexWrap: 'wrap' }}>
+                <div style={{ padding: '6px 8px', background: 'var(--bg-main)', border: '1px solid var(--border-subtle)', borderRadius: '4px', fontSize: 12, whiteSpace: 'nowrap' }}>Synthetic Workload</div>
                 <span style={{ color: 'var(--text-muted)' }}>→</span>
-                <div style={{ padding: '8px 12px', background: 'var(--bg-main)', border: '1px solid var(--border-subtle)', borderRadius: '4px', fontSize: 13, fontFamily: 'var(--font-mono)', color: 'var(--text-secondary)' }}>application.log</div>
+                <div style={{ padding: '6px 8px', background: 'var(--bg-main)', border: '1px solid var(--border-subtle)', borderRadius: '4px', fontSize: 12, fontFamily: 'var(--font-mono)', color: 'var(--text-secondary)', whiteSpace: 'nowrap' }}>application.log</div>
               </div>
             </div>
 
             <div style={{ color: 'var(--border-subtle)' }}>→</div>
 
             {/* Phase 2: Measure */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 8, padding: '16px', background: 'rgba(0,0,0,0.2)', borderRadius: '8px', border: '1px solid var(--border-subtle)' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 6, padding: '12px', background: 'rgba(0,0,0,0.2)', borderRadius: '8px', border: '1px solid var(--border-subtle)', flex: 1, minWidth: 0 }}>
               <div style={{ fontSize: 10, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 600 }}>Phase 2: Measure</div>
-              <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-                <div style={{ padding: '8px 12px', background: 'var(--bg-main)', border: '1px solid var(--border-subtle)', borderRadius: '4px', fontSize: 13 }}>Log Parser</div>
+              <div style={{ display: 'flex', gap: 4, alignItems: 'center', flexWrap: 'wrap' }}>
+                <div style={{ padding: '6px 8px', background: 'var(--bg-main)', border: '1px solid var(--border-subtle)', borderRadius: '4px', fontSize: 12, whiteSpace: 'nowrap' }}>Log Parser</div>
                 <span style={{ color: 'var(--text-muted)' }}>→</span>
-                <div style={{ padding: '8px 12px', background: 'linear-gradient(135deg, rgba(43, 178, 66, 0.1) 0%, transparent 100%)', border: '1px solid var(--accent-primary)', color: 'var(--accent-primary)', borderRadius: '4px', fontSize: 13, fontWeight: 500 }}>Sliding Window</div>
+                <div style={{ padding: '6px 8px', background: 'linear-gradient(135deg, rgba(43, 178, 66, 0.1) 0%, transparent 100%)', border: '1px solid var(--accent-primary)', color: 'var(--accent-primary)', borderRadius: '4px', fontSize: 12, fontWeight: 500, whiteSpace: 'nowrap' }}>Sliding Window</div>
               </div>
             </div>
 
             <div style={{ color: 'var(--border-subtle)' }}>→</div>
 
             {/* Phase 3: Detect */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 8, padding: '16px', background: 'rgba(0,0,0,0.2)', borderRadius: '8px', border: '1px solid var(--border-subtle)' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 6, padding: '12px', background: 'rgba(0,0,0,0.2)', borderRadius: '8px', border: '1px solid var(--border-subtle)', flex: 1, minWidth: 0 }}>
               <div style={{ fontSize: 10, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 600 }}>Phase 3: Detect</div>
-              <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-                <div style={{ padding: '8px 12px', background: 'var(--bg-main)', border: '1px solid var(--border-subtle)', borderRadius: '4px', fontSize: 13 }}>Baseline Engine</div>
+              <div style={{ display: 'flex', gap: 4, alignItems: 'center', flexWrap: 'wrap' }}>
+                <div style={{ padding: '6px 8px', background: 'var(--bg-main)', border: '1px solid var(--border-subtle)', borderRadius: '4px', fontSize: 12, whiteSpace: 'nowrap' }}>Baseline Engine</div>
                 <span style={{ color: 'var(--text-muted)' }}>→</span>
-                <div style={{ padding: '8px 12px', background: 'var(--bg-main)', border: '1px solid var(--border-subtle)', borderRadius: '4px', fontSize: 13 }}>Deviation Analysis</div>
+                <div style={{ padding: '6px 8px', background: 'var(--bg-main)', border: '1px solid var(--border-subtle)', borderRadius: '4px', fontSize: 12, whiteSpace: 'nowrap' }}>Deviation Analysis</div>
               </div>
             </div>
 
             <div style={{ color: 'var(--border-subtle)' }}>→</div>
 
             {/* Phase 4: Respond */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 8, padding: '16px', background: 'rgba(0,0,0,0.2)', borderRadius: '8px', border: '1px solid var(--border-subtle)' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 6, padding: '12px', background: 'rgba(0,0,0,0.2)', borderRadius: '8px', border: '1px solid var(--border-subtle)', flex: 1, minWidth: 0 }}>
               <div style={{ fontSize: 10, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 600 }}>Phase 4: Respond</div>
-              <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-                <div style={{ padding: '8px 12px', background: 'linear-gradient(135deg, rgba(229, 72, 77, 0.15) 0%, transparent 100%)', border: '1px solid var(--status-critical)', color: 'var(--status-critical)', borderRadius: '4px', fontSize: 13, fontWeight: 500 }}>Alert Engine</div>
+              <div style={{ display: 'flex', gap: 4, alignItems: 'center', flexWrap: 'wrap' }}>
+                <div style={{ padding: '6px 8px', background: 'linear-gradient(135deg, rgba(229, 72, 77, 0.15) 0%, transparent 100%)', border: '1px solid var(--status-critical)', color: 'var(--status-critical)', borderRadius: '4px', fontSize: 12, fontWeight: 500, whiteSpace: 'nowrap' }}>Alert Engine</div>
                 <span style={{ color: 'var(--text-muted)' }}>→</span>
-                <div style={{ padding: '8px 12px', background: 'var(--bg-main)', border: '1px solid var(--border-subtle)', borderRadius: '4px', fontSize: 13 }}>WebSockets / AWS SNS</div>
+                <div style={{ padding: '6px 8px', background: 'var(--bg-main)', border: '1px solid var(--border-subtle)', borderRadius: '4px', fontSize: 12, whiteSpace: 'nowrap' }}>WebSockets / AWS SNS</div>
               </div>
             </div>
 
