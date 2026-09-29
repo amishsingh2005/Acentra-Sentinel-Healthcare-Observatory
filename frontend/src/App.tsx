@@ -155,7 +155,7 @@ export default function App() {
           left: '-20vw',
           width: '120vw',
           height: '130vh',
-          zIndex: -2,
+          zIndex: 0,
           pointerEvents: 'none',
           opacity: 0.8
         }}
@@ -174,7 +174,7 @@ export default function App() {
         systemStatus={systemStatus}
       />
 
-      <main className="main" id="main-content">
+      <main className="main" id="main-content" style={{ position: 'relative', zIndex: 1 }}>
         {page === 'overview' && (
           <OverviewPage
             metrics={metrics}
