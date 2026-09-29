@@ -268,17 +268,17 @@ export function OverviewPage({
         <div className="section-title">AWS NOTIFICATIONS</div>
         <div className="card" style={{ display: 'flex', gap: 'var(--space-6)', alignItems: 'center' }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
-            <span className="text-muted" style={{ fontSize: 12, textTransform: 'uppercase' }}>SNS Topic</span>
+            <span className="text-muted" style={{ fontSize: 12, textTransform: 'uppercase' }}>Alert Transport</span>
             <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)' }}>
-              <span className={`status-dot ${notifStatus?.sns_configured ? 'healthy' : 'warning'}`} />
-              <span style={{ fontWeight: 500 }}>{notifStatus?.sns_configured ? 'Connected' : 'Demo Mode'}</span>
+              <span className={`status-dot ${notifStatus?.connected ? 'healthy' : 'warning'}`} />
+              <span style={{ fontWeight: 500 }}>{notifStatus?.provider || 'Demo Mode'}</span>
             </div>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
-            <span className="text-muted" style={{ fontSize: 12, textTransform: 'uppercase' }}>CloudWatch</span>
+            <span className="text-muted" style={{ fontSize: 12, textTransform: 'uppercase' }}>Routing Mode</span>
             <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)' }}>
-              <span className="status-dot warning" />
-              <span style={{ fontWeight: 500 }}>Demo Mode</span>
+              <span className={`status-dot ${notifStatus?.connected ? 'healthy' : 'warning'}`} />
+              <span style={{ fontWeight: 500, textTransform: 'capitalize' }}>{notifStatus?.mode || 'demo'}</span>
             </div>
           </div>
           {notifStatus?.last_notification && (
