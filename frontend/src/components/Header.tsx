@@ -15,6 +15,7 @@ export function Header({ page, onNav, connected }: HeaderProps) {
         <div className="brand-name" style={{ display: 'flex', alignItems: 'center', height: 48, gap: 16 }}>
           {/* Acentra Health Pure HTML/SVG Logo */}
           <div 
+            className="logo-container"
             style={{ display: 'flex', alignItems: 'center', gap: 6, cursor: 'pointer' }}
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             title="Scroll to top"

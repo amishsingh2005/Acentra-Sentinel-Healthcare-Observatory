@@ -155,7 +155,7 @@ export default function App() {
         systemStatus={systemStatus}
       />
 
-      <main className="main" id="main-content" style={{ position: 'relative', zIndex: 1 }}>
+      <main className="main page-transition" id="main-content" style={{ position: 'relative', zIndex: 1 }} key={page}>
         {page === 'overview' && (
           <OverviewPage
             metrics={metrics}
