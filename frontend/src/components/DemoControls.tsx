@@ -51,7 +51,7 @@ export function DemoControls() {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '16px' }}>
         <div>
           <div style={{ fontSize: 14, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--text-primary)', marginBottom: 4, display: 'flex', alignItems: 'center' }}>
-            <span style={{ fontSize: 16, marginRight: 8, opacity: 0.8 }}>⚙️</span> SIMULATION CONTROLS
+            <span style={{ fontSize: 16, marginRight: 8, opacity: 0.8 }}>🎛️</span> SIMULATION CONTROLS
           </div>
           <div className="text-muted" style={{ fontSize: 12 }}>
             Inject synthetic incidents into the log stream to test operational resilience and pipeline failovers
@@ -61,20 +61,18 @@ export function DemoControls() {
           <div style={{ color: 'var(--accent-primary)', display: 'flex', alignItems: 'center', gap: 6 }}>
             <span className="status-dot healthy"></span> Engine Ready
           </div>
-          <span style={{ color: 'var(--border-subtle)' }}>·</span>
-          <span className="text-muted">Target: Synthetic-Kube-Cluster</span>
         </div>
       </div>
       
       <div style={{ display: 'flex', gap: 'var(--space-3)', flexWrap: 'wrap', alignItems: 'center' }}>
-        {renderSimButton('simulate_claims', '⚡', 'Simulate Claims Incident', 'Stop Claims Incident')}
-        {renderSimButton('simulate_um', '⏱️', 'Simulate UM Delay', 'Stop UM Delay')}
-        {renderSimButton('simulate_fhir', '🔌', 'Simulate FHIR Failure', 'Stop FHIR Failure')}
-        {renderSimButton('simulate_pharmacy', '💊', 'Simulate Pharmacy Spike', 'Stop Pharmacy Spike')}
+        {renderSimButton('simulate_claims', '⚠️', 'Simulate Claims Incident', 'Stop Claims Incident')}
+        {renderSimButton('simulate_um', '⏳', 'Simulate UM Delay', 'Stop UM Delay')}
+        {renderSimButton('simulate_fhir', '💥', 'Simulate FHIR Failure', 'Stop FHIR Failure')}
+        {renderSimButton('simulate_pharmacy', '📈', 'Simulate Pharmacy Spike', 'Stop Pharmacy Spike')}
         
         <div style={{ marginLeft: 'auto' }}>
           <button className="btn btn-secondary" disabled={loading} onClick={handleReset}>
-            <span style={{ opacity: 0.8, marginRight: 6 }}>🔄</span> Reset Demo
+            <span style={{ opacity: 0.8, marginRight: 6 }}>🔁</span> Reset Demo
           </button>
         </div>
       </div>
