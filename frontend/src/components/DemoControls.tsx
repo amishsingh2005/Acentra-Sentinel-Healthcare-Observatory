@@ -7,7 +7,10 @@ export function DemoControls() {
 
   async function handleSimulate(type: string) {
     if (activeSim === type) {
-      await handleReset();
+      setLoading(true);
+      await api.demo('stop');
+      setActiveSim(null);
+      setLoading(false);
       return;
     }
     setLoading(true);
@@ -44,7 +47,7 @@ export function DemoControls() {
   };
 
   return (
-    <div className="card" style={{ padding: 'var(--space-4)', display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
+    <div className="glass-panel" style={{ padding: 'var(--space-4)', display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '16px' }}>
         <div>
           <div style={{ fontSize: 14, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--text-primary)', marginBottom: 4, display: 'flex', alignItems: 'center' }}>
