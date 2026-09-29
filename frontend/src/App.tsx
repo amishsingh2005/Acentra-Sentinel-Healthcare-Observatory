@@ -151,18 +151,20 @@ export default function App() {
       <div 
         style={{
           position: 'fixed',
-          top: '-15vh',
-          left: '-20vw',
-          width: '120vw',
-          height: '130vh',
+          top: '-10vh',
+          left: '-10vw',
+          width: '100vw',
+          height: '110vh',
           zIndex: 0,
           pointerEvents: 'none',
-          opacity: 0.8
+          opacity: 0.9
         }}
       >
-        <svg viewBox="0 0 40 40" preserveAspectRatio="xMidYMid slice" style={{ width: '100%', height: '100%' }}>
-          <path d="M 14 20 L 22 6 L 34 32" stroke="#06272A" strokeWidth="8" strokeLinecap="square" strokeLinejoin="miter" fill="none" />
-          <path d="M 6 32 Q 20 22 34 32" stroke="#06272A" strokeWidth="8" strokeLinecap="square" fill="none" />
+        <svg viewBox="0 0 100 100" preserveAspectRatio="xMinYMin slice" style={{ width: '100%', height: '100%' }}>
+          {/* Thick legs */}
+          <path d="M 15 110 L 45 15 L 85 110" stroke="#092A2C" strokeWidth="22" strokeLinejoin="miter" strokeMiterlimit="4" fill="none" />
+          {/* Curved crossbar */}
+          <path d="M 5 100 Q 45 75 95 100" stroke="#092A2C" strokeWidth="22" fill="none" />
         </svg>
       </div>
 
