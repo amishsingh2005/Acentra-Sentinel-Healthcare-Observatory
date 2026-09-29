@@ -147,27 +147,6 @@ export default function App() {
 
   return (
     <div className="app-wrapper">
-      {/* Background Watermark Logo */}
-      <div 
-        style={{
-          position: 'fixed',
-          top: '-10vh',
-          left: '-10vw',
-          width: '100vw',
-          height: '110vh',
-          zIndex: 0,
-          pointerEvents: 'none',
-          opacity: 0.9
-        }}
-      >
-        <svg viewBox="0 0 100 100" preserveAspectRatio="xMinYMin slice" style={{ width: '100%', height: '100%' }}>
-          {/* Thick legs */}
-          <path d="M 15 110 L 45 15 L 85 110" stroke="#092A2C" strokeWidth="22" strokeLinejoin="miter" strokeMiterlimit="4" fill="none" />
-          {/* Curved crossbar */}
-          <path d="M 5 100 Q 45 75 95 100" stroke="#092A2C" strokeWidth="22" fill="none" />
-        </svg>
-      </div>
-
       <Header
         page={page}
         onNav={setPage}
