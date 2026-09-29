@@ -147,6 +147,25 @@ export default function App() {
 
   return (
     <div className="app-wrapper">
+      {/* Background Watermark Logo */}
+      <div 
+        style={{
+          position: 'fixed',
+          top: '-15vh',
+          left: '-20vw',
+          width: '120vw',
+          height: '130vh',
+          zIndex: -2,
+          pointerEvents: 'none',
+          opacity: 0.8
+        }}
+      >
+        <svg viewBox="0 0 40 40" preserveAspectRatio="xMidYMid slice" style={{ width: '100%', height: '100%' }}>
+          <path d="M 14 20 L 22 6 L 34 32" stroke="#06272A" strokeWidth="8" strokeLinecap="square" strokeLinejoin="miter" fill="none" />
+          <path d="M 6 32 Q 20 22 34 32" stroke="#06272A" strokeWidth="8" strokeLinecap="square" fill="none" />
+        </svg>
+      </div>
+
       <Header
         page={page}
         onNav={setPage}
