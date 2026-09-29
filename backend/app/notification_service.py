@@ -52,7 +52,11 @@ class NotificationService:
             self.connected_sns = True
             logger.info("AWS SNS connected successfully.")
         except Exception as e:
-            logger.warning(f"AWS SNS connection failed: {e}")
+            if "AuthorizationError" in str(e):
+                self.connected_sns = True
+                logger.info("AWS SNS authenticated, but GetTopicAttributes is denied. Assuming Publish is allowed.")
+            else:
+                logger.warning(f"AWS SNS connection failed: {e}")
 
     def _init_smtp(self):
         if self.smtp_username and self.smtp_password and self.smtp_recipient:
